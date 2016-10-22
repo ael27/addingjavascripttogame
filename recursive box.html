@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var canvas;
+        var ctx;
+        var width;
+        var height;
+
+        function setup(){
+            canvas = document.getElementById("boxCanvas");
+            ctx=canvas.getContext('2d');
+            width = 500;
+            height = 500;
+            canvas.width = width;
+            canvas.height=height;
+            drawBoxes(width, height);
+        }
+
+
+        function drawBoxes(){
+            changeColor();
+            ctx.fillRect(200,200,width,height);
+            while (width>1){
+                width =width -2;
+                height-=2;
+                changeColor();
+                ctx.fillRect(200,200,width,height);
+
+            }
+        }
+
+        function changeColor(){
+            ctx.fillStyle="rgb("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+")";
+        }
+
+    </script>
+</head>
+
+<body>
+<canvas id="boxCanvas"> </canvas>
+<script>setup();</script>
+</body>
+</html>
